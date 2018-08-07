@@ -20,7 +20,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(["dist"]),
     new HtmlWebpackPlugin({
-      template: "./src/index.html"
+      template: "./public/index.html"
     })
   ],
   output: {
