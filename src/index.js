@@ -1,6 +1,16 @@
 import React from "react";
 import { render } from "react-dom";
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware } from "redux";
+import App from "./components/App";
+import rootReducer from "./reducers";
 
-const App = () => <h1>Hello World</h1>;
+const createStoreWithMiddleware = applyMiddleware()(createStore);
 
-render(<App />, document.getElementById("root"));
+const jsx = (
+  <Provider store={createStoreWithMiddleware(rootReducer)}>
+    <App />
+  </Provider>
+);
+
+render(jsx, document.getElementById("root"));
